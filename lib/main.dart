@@ -4,10 +4,8 @@ import 'package:provider/provider.dart';
 import 'package:todo_app2/main_model.dart';
 
 void main() async {
-  print('aaa');
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  //MainModel().getTodoList();
   runApp(MyApp());
 }
 
@@ -17,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Todoアプリ',
       home: ChangeNotifierProvider<MainModel>(
-        create: (_) => MainModel()..getTodoList(),
+        create: (_) => MainModel()..getTodoListRealtime(),
         child: Scaffold(
           appBar: AppBar(
             title: Text('Todoアプリ'),
